@@ -1,5 +1,5 @@
 <?php
-require_once 'class/product.class.php';
+require_once 'Model/product.class.php';
 
 
 $product = new Product("Sabonete", "Dove", "Higiene", 2);
