@@ -2,7 +2,7 @@
 
 Class User{
 
-    private $name;
+    public $name;
     private $email;
     private $password;
 
