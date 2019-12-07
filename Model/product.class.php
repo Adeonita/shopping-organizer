@@ -44,6 +44,8 @@ Class Product{
     }
 
     public function setPrice($price){
-        $this->price = $price;
+        if(is_numeric($price) && ($price > 0)){
+            $this->price = $price;
+        }
     }   
 }
