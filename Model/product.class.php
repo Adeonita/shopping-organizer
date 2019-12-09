@@ -1,10 +1,11 @@
 <?php
 
-Class Product{
+class Product{
     private $name;
     private $brand;
     private $category; 
     private $price;
+    private $userId;
     
     //Construtor, é chamado na instancia da classe
     public function __construct($name,$brand, $category, $price , $userId){
@@ -57,4 +58,14 @@ Class Product{
     public function setUserId($userId){
         $this->userId = $userId;
     }
+
+    public function returnData(){
+        $this->product = new Product('a','b', 'c', 'd', 'e');
+        $reflectionClass = new ReflectionClass($this->product);
+        $className = $reflectionClass->getName();
+        $methods = $reflectionClass->getProperties();
+        echo $className;
+        var_dump( $methods);
+    }
 }
+
