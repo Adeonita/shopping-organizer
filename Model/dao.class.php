@@ -26,6 +26,8 @@ class Dao{
         return $query;
     }
 
+    
+
 }
 
 $dao = new Dao();
