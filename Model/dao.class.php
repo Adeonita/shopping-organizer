@@ -4,15 +4,14 @@ require_once('user.class.php');
 
 class Dao{
 
-    public function insert($object){
-
+    public function insert($object){  //Recebe o objeto e as propriedades a serem excedidas na montagem da query
+        $exceptions = $object->getExceptions();
         $reflectionClass = new ReflectionClass($object); //Isntancia da reflection class tendo o objeto como parâmetro
         $className = $reflectionClass->getName();  //pega a classe do objeto
         $tableName = $className.'s';   //Coloca o nome da classe no plural
         $classAritributes = $reflectionClass->getProperties();  //Pega todos os atributos da classe
         $getNameAttributes = (array_column($classAritributes, 'name')); //pega apenas os nomes dos atributos
-        $except = ['name'];  //Atributos a ser removido do insert 
-        $properties = array_diff($getNameAttributes, $except);  //Remoção do atributo indesejado 
+        $properties = array_diff($getNameAttributes, $exceptions);  //Remoção do atributo indesejado 
         $atributes = ""; 
         $values = "";
         foreach($properties as $property){  //Percorre apenas colunas com índice == name
@@ -25,6 +24,7 @@ class Dao{
         $values = substr($values, 0, -2);        //Removo os dois últimos caracteres da string atributes, a saber " " e ',' respectivamente
 
         $query =  "INSERT INTO {$tableName} ({$atributes}) VALUES ({$values})";  
+       
         return $query;
     }
 
@@ -33,6 +33,7 @@ class Dao{
 }
 
 $dao = new Dao();
-$query = $dao->insert((new User('Adeonita','adeonita.sousa@gmail.com', "123testando")));
-
+$query = $dao->insert(new User('Adeonita','adeonita.sousa@gmail.com', "123testando"), 'name,email,exceptions');
+$pd = $dao->insert(new Product("Sabonete", "Dove", "Higiene", 2,1), '');
 print $query;
+print "<br>".$pd;
