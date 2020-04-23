@@ -6,7 +6,9 @@ class Product{
     private $category; 
     private $price;
     private $userId;
-    
+    private $exceptions = ['exceptions','name', 'email'];
+
+
     //Construtor, é chamado na instancia da classe
     public function __construct($name,$brand, $category, $price , $userId){
         $this->name = $name;
@@ -67,5 +69,10 @@ class Product{
         echo $className;
         var_dump( $methods);
     }
+    
+    public function getExceptions(){
+        return $this->exceptions;
+    }
+    
 }
 

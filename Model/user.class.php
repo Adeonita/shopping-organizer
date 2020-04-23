@@ -5,6 +5,7 @@ class User{
     private $name;
     private $email;
     private $password;
+    private $exceptions = ['exceptions','name', 'email'];
 
     public function __construct($name, $email, $password){
         $this->name = $name;
@@ -34,6 +35,10 @@ class User{
 
     public function setEmail($email){
         $this->email = $email;
+    }
+
+    public function getExceptions(){
+        return $this->exceptions;
     }
     
 }
