@@ -1,6 +1,7 @@
 <?php
 require_once('product.class.php');
 require_once('user.class.php');
+require_once('test.php');
 
 class Dao{
 
@@ -23,6 +24,9 @@ class Dao{
         $atributes = substr($atributes, 0, -2);  //Removo os dois últimos caracteres da string atributes, a saber " " e ',' respectivamente
         $values = substr($values, 0, -2);        //Removo os dois últimos caracteres da string atributes, a saber " " e ',' respectivamente
 
+        if($atributes == ''){
+            return;
+        }     
         $query =  "INSERT INTO {$tableName} ({$atributes}) VALUES ({$values})";  
        
         return $query;
@@ -33,7 +37,10 @@ class Dao{
 }
 
 $dao = new Dao();
-$query = $dao->insert(new User('Adeonita','adeonita.sousa@gmail.com', "123testando"), 'name,email,exceptions');
-$pd = $dao->insert(new Product("Sabonete", "Dove", "Higiene", 2,1), '');
+$query = $dao->insert(new User('Adeonita','adeonita.sousa@gmail.com', "123testando"));
+$pd = $dao->insert(new Product("Sabonete", "Dove", "Higiene", 2,1));
+$mt = $dao->insert(new Test("Teste"));
+
 print $query;
 print "<br>".$pd;
+print "<br>".$mt;
