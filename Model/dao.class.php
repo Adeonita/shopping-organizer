@@ -24,7 +24,7 @@ class Dao{
         $atributes = substr($atributes, 0, -2);  //Removo os dois últimos caracteres da string atributes, a saber " " e ',' respectivamente
         $values = substr($values, 0, -2);        //Removo os dois últimos caracteres da string atributes, a saber " " e ',' respectivamente
 
-        if($atributes == ''){
+        if(empty($atributes)){
             return;
         }     
         $query =  "INSERT INTO {$tableName} ({$atributes}) VALUES ({$values})";  
@@ -39,7 +39,7 @@ class Dao{
 $dao = new Dao();
 $query = $dao->insert(new User('Adeonita','adeonita.sousa@gmail.com', "123testando"));
 $pd = $dao->insert(new Product("Sabonete", "Dove", "Higiene", 2,1));
-$mt = $dao->insert(new Test("Teste"));
+$mt = $dao->insert(new Test("teste"));
 
 print $query;
 print "<br>".$pd;
