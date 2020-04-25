@@ -2,17 +2,12 @@
 
 abstract class modelBase{
     
-    protected $exceptions = ['exceptions'];
+    protected $excepts = [];
 
-    public function __construct($ex){
-        $this->exceptions = array_merge($this->exceptions, $this->ex);
+    public function getExcepts(){
+        return $this->excepts;
     }
-
-
-    public function getExceptions(){
-        return $this->exceptions;
-    }   
     
 }
 
-
+?>
