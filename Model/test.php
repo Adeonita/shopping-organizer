@@ -4,14 +4,15 @@ require_once('modelBase.php');
 class Test extends modelBase{
 
     private $name;
-    protected $ex = ['name', 'end', 'etc'];
+    private $login;
+    private $password;
 
-    public function __construct($name){
-        parent::__construct($this->ex);
+    protected $excepts = [];
+
+    public function __construct($name, $login, $password){
         $this->name = $name;
-        //array_push($this->exceptions, "name", "t", "a");
-        //$this->exceptions[] = 'name'; //adiciono a nova exception
-       // $this->exc =  array_merge($this->exceptions, $this->ex);
+        $this->login = $login;
+        $this->password = $password;
     }
 
     public function getName(){
@@ -22,10 +23,26 @@ class Test extends modelBase{
         $this->name = $name;
     }
 
+    public function getLogin(){
+        return $this->login;
+    }
+
+    public function setLogin($login){
+        $this->login = $login;
+    }
+
+    public function getPassword(){
+        return $this->password;
+    }
+
+    public function setPassword($password){
+        $this->password = $password;
+    }
+    
     
 }
- $mt = new Test('t');
- var_dump($mt->getExceptions());
+$mt = new Test('a', 'b', 'c');
+var_dump($mt->getExcepts());
 
 ?>
 
