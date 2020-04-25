@@ -1,7 +1,4 @@
 <?php
-require_once('product.class.php');
-require_once('user.class.php');
-require_once('example.php');
 
 class QueryBuilder{
 
@@ -31,20 +28,6 @@ class QueryBuilder{
        
         return $query;
     }
-
     
 
 }
-
-$qb = new QueryBuilder();
-
-$example = $qb->insert(new Example('test', 'myExcept'));
-print $example."<br>";
-
-/*
-$user = $qb->insert(new User('Adeonita','adeonita.sousa@gmail.com', "123testando"));
-$pd = $qb->insert(new Product("Sabonete", "Dove", "Higiene", 2,1));
-print $user."<br>";
-print $pd."<br>";
-*/
-
