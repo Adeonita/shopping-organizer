@@ -1,11 +1,12 @@
 <?php
+require_once('modelBase.php');
 
-class User{
+class User extends modelBase{
 
     private $name;
     private $email;
     private $password;
-    private $exceptions = ['exceptions','name', 'email'];
+    protected $excepts = ['name'];
 
     public function __construct($name, $email, $password){
         $this->name = $name;
@@ -37,10 +38,6 @@ class User{
         $this->email = $email;
     }
 
-    public function getExceptions(){
-        return $this->exceptions;
-    }
-    
 }
 
 

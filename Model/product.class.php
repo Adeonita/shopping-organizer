@@ -1,12 +1,13 @@
 <?php
+require_once('modelBase.php');
 
-class Product{
+class Product extends modelBase{
     private $name;
     private $brand;
     private $category; 
     private $price;
     private $userId;
-    private $exceptions = ['exceptions','name', 'email'];
+    protected $excepts = ['category'];
 
 
     //Construtor, é chamado na instancia da classe
@@ -70,9 +71,7 @@ class Product{
         var_dump( $methods);
     }
     
-    public function getExceptions(){
-        return $this->exceptions;
-    }
+    
     
 }
 
