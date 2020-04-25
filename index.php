@@ -1,12 +1,8 @@
 <?php
-require_once 'Model/product.class.php';
 
+require_once ('Model/queryBuilder.php');
+require_once ('Model/example.class.php');
 
-$product = new Product("Sabonete", "Dove", "Higiene", 2);
-$product2 = new Product("Sabão em pó", "Omo", "Limpeza", 8);
-
-var_dump($product);
-var_dump($product2);
-
-$product2->setName("Agua");
-var_dump($product2);
+$qb = new QueryBuilder();
+$example = $qb->insert(new Example('propertyName', 'myException'));
+var_dump($example);
